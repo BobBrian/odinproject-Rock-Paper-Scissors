@@ -89,6 +89,21 @@ function checkScore(playerScore, computerScore){
     }
 }
 
+function playGame (){
+    for (let i = 0; i < rounds; i++){
+        const humanSelection = getHumanChoice()
 
+        if(humanSelection === null){
+            console.log("Game Ended")
+            return;
+        }
+
+        const computerSelection = getComputerChoice()
+
+        playRound(humanSelection, computerSelection)
+    }
+
+    checkScore()
+}
 
 
