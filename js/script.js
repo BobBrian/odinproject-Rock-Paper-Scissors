@@ -22,7 +22,7 @@ function getHumanChoice(){
     let person = prompt("Please pick rock, paper or scissors")
     if (person != null) {
     console.log("Success! You Chose " + person + "!");
-    return person; // This is important so that we actually get a response and not null
+    return person.toLowerCase(); // This is important so that we actually get a response and not null
   }
 }
 
@@ -32,9 +32,6 @@ function playRound(humanChoice, computerChoice) {
 
     console.log(`You chose ${humanChoice}`);
     console.log(`Computer chose ${computerChoice}`);
-
-    humanChoice = humanChoice.toLowerCase();
-    computerChoice =computerChoice.toLowerCase();
 
     if (humanChoice === computerChoice){
         console.log("It's a Tie")
