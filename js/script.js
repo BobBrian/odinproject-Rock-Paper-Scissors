@@ -25,8 +25,9 @@ function getComputerChoice () {
 function getHumanChoice(){
     // We dont worry about Error Handeling at this stage
     let person = prompt("Please pick rock, paper or scissors")
-      if (person != null) {
+    if (person != null) {
     console.log("Success! You Chose " + person + "!");
+    return person; // This is important so that we actually get a response and not null
   }
 }
 
@@ -90,6 +91,7 @@ function checkScore(playerScore, computerScore){
 }
 
 function playGame (){
+    // For Loop Javascript Style so that the playRound function runs 5 times
     for (let i = 0; i < rounds; i++){
         const humanSelection = getHumanChoice()
 
@@ -106,4 +108,5 @@ function playGame (){
     checkScore()
 }
 
-
+// This actually starts the game
+playGame();
