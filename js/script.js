@@ -17,3 +17,10 @@ function getComputerChoice () {
             return C;
     }
 }
+
+function getHumanChoice(){
+    let person = prompt("Please pick rock, paper or scissors")
+      if (person != null) {
+    console.log("Success! You Chose " + person + "!");
+  }
+}
