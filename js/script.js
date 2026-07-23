@@ -78,8 +78,14 @@ function checkScore(playerScore, computerScore){
         
     if(playerScore > computerScore){
         console.log(`You won! Your score is ${playerScore} out of ${playerScore + computerScore}`)
-    }else{
+    }
+    else if (playerScore < computerScore)
+    {
         console.log(`You Lose!. Your score is ${playerScore} out of ${playerScore + computerScore}.`)
+    }
+    else
+    {
+        console.log("Its a Tie")
     }
 }
 
