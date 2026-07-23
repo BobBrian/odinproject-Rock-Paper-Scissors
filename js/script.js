@@ -1,3 +1,7 @@
+let humanScore = 0;
+let computerScore = 0;
+let round = 5;
+
 function getComputerChoice () {
     let A = "rock"
 
@@ -19,11 +23,66 @@ function getComputerChoice () {
 }
 
 function getHumanChoice(){
+    // We dont worry about Error Handeling at this stage
     let person = prompt("Please pick rock, paper or scissors")
       if (person != null) {
     console.log("Success! You Chose " + person + "!");
   }
 }
 
-let humanScore = 0;
-let computerScore = 0;
+
+
+function playRound(humanChoice, computerChoice) {
+
+    console.log(`You chose ${humanChoice}`);
+    console.log(`Computer chose ${computerChoice}`);
+
+    humanChoice = humanChoice.toLowerCase();
+    computerChoice =computerChoice.toLowerCase();
+
+    if (humanChoice === computerChoice){
+        console.log("It's a Tie")
+    }
+    else if (humanChoice == 'rock'){
+        if(computerChoice == 'paper'){
+            console.log("Computer Won")
+            computerScore++;
+        } else {
+            console.log("Player Won")
+            humanScore++;
+        }
+    }
+    else if (humanChoice  == 'scissors'){
+        if(computerChoice == 'rock'){
+            console.log("Computer Won")
+            computerScore++;
+        } else {
+            console.log("Player Won")
+            humanScore++;
+        }
+    }
+    else if (humanChoice  == 'paper'){
+        if(computerChoice == 'scissors'){
+            console.log("Computer Won")
+            computerScore++;
+        } else {
+            console.log("Player Won")
+            humanScore++;
+        }
+    }
+
+    console.log(`Score: Player ${humanScore} - Computer ${computerScore}`);
+}
+
+function checkScore(playerScore, computerScore){
+        
+    if(playerScore > computerScore){
+        console.log(`You won! Your score is ${playerScore} out of ${playerScore + computerScore}`)
+    }else{
+        console.log(`You Lose!. Your score is ${playerScore} out of ${playerScore + computerScore}.`)
+    }
+}
+
+
+
+
