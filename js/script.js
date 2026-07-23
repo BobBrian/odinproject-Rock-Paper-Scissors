@@ -24,3 +24,6 @@ function getHumanChoice(){
     console.log("Success! You Chose " + person + "!");
   }
 }
+
+let humanScore = 0;
+let computerScore = 0;
