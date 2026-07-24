@@ -26,8 +26,6 @@ function getHumanChoice(){
   }
 }
 
-
-
 function playRound(humanChoice, computerChoice) {
 
     console.log(`You chose ${humanChoice}`);
