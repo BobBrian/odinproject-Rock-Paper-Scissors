@@ -83,20 +83,21 @@ function checkScore(playerScore, computerScore){
 function playGame (){
     // For Loop Javascript Style so that the playRound function runs 5 times
     for (let i = 0; i < rounds; i++){
-        const humanSelection = getHumanChoice()
+        const humanSelection = getHumanChoice() // We are calling the function getHumanChoice
 
         if(humanSelection === null){
             console.log("Game Ended")
             return;
         }
 
-        const computerSelection = getComputerChoice()
+        const computerSelection = getComputerChoice() // We are calling the function getComputerChoice()
 
-        playRound(humanSelection, computerSelection)
+        playRound(humanSelection, computerSelection) // We are calling the function playRound
     }
 
-    checkScore()
+    checkScore() // We are calling the function checkScore()
 }
 
 // This actually starts the game
+// This is what we refer to as Calling the function
 playGame();
