@@ -12,19 +12,21 @@ const game = () =>{
         const rockBtn = document.querySelector('.rock');
         const paperBtn = document.querySelector('.paper');
         const scissorBtn = document.querySelector('.scissor');
+
         const humanSelection = [rockBtn, paperBtn, scissorBtn];
-        const computerSelection = getComputerChoice() // We are calling the function getComputerChoice()
 
         // Function to start playing game
         humanSelection.forEach(option => {
             option.addEventListener('click', function () {
                 //This is how we update the text 
-                const moveLeft = document.querySelector('.movesleft');
+
+                const movesLeft = document.querySelector('.movesleft');
+
                 moves++;
+
                 movesLeft.innerText = `Moves Left: ${10 - moves}`;
 
-                const choiceNumber = Math.floor(Math.random() * 3);
-                const computerChoice = computerOptions[choiceNumber];
+                const computerChoice = getComputerChoice();
 
                 // Function to check who wins
                 winner(this.innerText, computerChoice)
@@ -58,10 +60,15 @@ const game = () =>{
 
     const winner = (humanChoice, computerChoice) => {
         const result = document.querySelector('.result');
+
         const humanScoreBoard = document.querySelector('.p-count');
+
         const computerScoreBoard = document.querySelector('.c-count');
+
         humanChoice = humanChoice.toLowerCase()
+
         computerChoice = computerChoice.toLowerCase()
+
 
         if (humanChoice === computerChoice){
             result.textContent = 'Tie'
@@ -69,40 +76,52 @@ const game = () =>{
         else if (humanChoice == 'rock'){
             if(computerChoice == 'paper'){
                 result.textContent = 'Computer Won'
+
                 computerScore++;
+
                 computerScoreBoard.textContent = computerScore;
             } else {
                 result.textContent = 'Playeer Won'
+
                 humanScore++;
-                humanScoreBoard.textContent = computerScore;
+
+                humanScoreBoard.textContent = humanScore;
             }
         }
         else if (humanChoice  == 'scissors'){
             if(computerChoice == 'rock'){
                 result.textContent = 'Computer Won'
+
                 computerScore++;
+
                 computerScoreBoard.textContent = computerScore;
             } else {
                 result.textContent = 'Playeer Won'
+
                 humanScore++;
-                humanScoreBoard.textContent = computerScore;
+
+                humanScoreBoard.textContent = humanScore;
             }
         }
         else if (humanChoice  == 'paper'){
             if(computerChoice == 'scissors'){
                 result.textContent = 'Computer Won'
+
                 computerScore++;
+
                 computerScoreBoard.textContent = computerScore;
             } else {
                 result.textContent = 'Playeer Won'
+
                 humanScore++;
-                humanScoreBoard.textContent = computerScore;
+
+                humanScoreBoard.textContent = humanScore;
             }
         }
-    }
+    };
 
     // Function to run when game is over
-    const gameOver = (humanSelection, moveLeft) => {
+    const gameOver = (humanSelection, movesLeft) => {
 
         const chooseMove = document.querySelector('.move');
         const result = document.querySelector('.result');
