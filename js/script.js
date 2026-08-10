@@ -12,7 +12,7 @@ const game = () =>{
         const rockBtn = document.querySelector('.rock');
         const paperBtn = document.querySelector('.paper');
         const scissorBtn = document.querySelector('.scissor');
-        const humanSelection = getHumanChoice() // We are calling the function getHumanChoice
+        const humanSelection = [rockBtn, paperBtn, scissorBtn];
         const computerSelection = getComputerChoice() // We are calling the function getComputerChoice()
 
         // Function to start playing game
@@ -53,14 +53,6 @@ const game = () =>{
                 return "paper";
             case 2:
                 return "scissors";
-        }
-    }
-
-    function getHumanChoice(){
-        // We dont worry about Error Handeling at this stage
-        let person = prompt("Please pick rock, paper or scissors")
-        if (person != null) {
-            console.log("Success! You Chose " + person + "!");
         }
     }
 
