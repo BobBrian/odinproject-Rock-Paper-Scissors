@@ -1,13 +1,13 @@
 // Encompase Enitre Game Function inside a function
 
-const game = () =>{
+function startGame () {
     let humanScore = 0;
     let computerScore = 0;
     let moves = 0
 
 
     //Game Logic to play game
-    const playGame = () =>{
+    function playGame () {
         // Were using DOM to map out buttons into the functions in our script tag
         const rockBtn = document.querySelector('.rock');
         const paperBtn = document.querySelector('.paper');
@@ -29,7 +29,7 @@ const game = () =>{
                 const computerChoice = getComputerChoice();
 
                 // Function to check who wins
-                winner(this.innerText, computerChoice)
+                determineWinner(this.innerText, computerChoice)
 
                 // Calling gameOver function after 10 moves
                 if (moves == 10) {
@@ -58,7 +58,7 @@ const game = () =>{
         }
     }
 
-    const winner = (humanChoice, computerChoice) => {
+    function determineWinner  (humanChoice, computerChoice) {
         const result = document.querySelector('.result');
 
         const humanScoreBoard = document.querySelector('.p-count');
@@ -81,7 +81,7 @@ const game = () =>{
 
                 computerScoreBoard.textContent = computerScore;
             } else {
-                result.textContent = 'Playeer Won'
+                result.textContent = 'Player Won'
 
                 humanScore++;
 
@@ -96,7 +96,7 @@ const game = () =>{
 
                 computerScoreBoard.textContent = computerScore;
             } else {
-                result.textContent = 'Playeer Won'
+                result.textContent = 'Player Won'
 
                 humanScore++;
 
@@ -111,7 +111,7 @@ const game = () =>{
 
                 computerScoreBoard.textContent = computerScore;
             } else {
-                result.textContent = 'Playeer Won'
+                result.textContent = 'Player Won'
 
                 humanScore++;
 
@@ -121,7 +121,7 @@ const game = () =>{
     };
 
     // Function to run when game is over
-    const gameOver = (humanSelection, movesLeft) => {
+    function gameOver (humanSelection, movesLeft) {
 
         const chooseMove = document.querySelector('.move');
         const result = document.querySelector('.result');
@@ -157,12 +157,9 @@ const game = () =>{
         })
     }
 
-
-
-
     playGame();
 
 }
 
 // calling game fucntion
-game();
+startGame();
