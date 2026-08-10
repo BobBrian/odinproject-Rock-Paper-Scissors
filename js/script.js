@@ -19,8 +19,6 @@ const game = () =>{
         checkScore() // We are calling the function checkScore()
     }
 
-    }
-
 
     function getComputerChoice () {
 
