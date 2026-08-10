@@ -3,7 +3,24 @@
 const game = () =>{
     let humanScore = 0;
     let computerScore = 0;
-    let round = 5;
+    let moves = 0
+
+
+    //Game Logic to play game
+    const playGame = () =>{
+        // Were using DOM to map out buttons into the functions in our script tag
+        const rockBtn = document.querySelector('.rock');
+        const paperBtn = document.querySelector('.paper');
+        const scissorBtn = document.querySelector('.scissor');
+        const humanSelection = getHumanChoice() // We are calling the function getHumanChoice
+        const computerSelection = getComputerChoice() // We are calling the function getComputerChoice()
+
+        playRound(humanSelection, computerSelection) // We are calling the function playRound
+        checkScore() // We are calling the function checkScore()
+    }
+
+    }
+
 
     function getComputerChoice () {
 
@@ -84,23 +101,7 @@ const game = () =>{
     }
 
 
-    function playGame (){
-        // For Loop Javascript Style so that the playRound function runs 5 times
-        for (let i = 0; i < rounds; i++){
-            const humanSelection = getHumanChoice() // We are calling the function getHumanChoice
 
-            if(humanSelection === null){
-                console.log("Game Ended")
-                return;
-            }
-
-            const computerSelection = getComputerChoice() // We are calling the function getComputerChoice()
-
-            playRound(humanSelection, computerSelection) // We are calling the function playRound
-        }
-
-        checkScore() // We are calling the function checkScore()
-    }
 
     // This actually starts the game
     // This is what we refer to as Calling the function
