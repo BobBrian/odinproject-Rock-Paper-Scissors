@@ -38,8 +38,6 @@ const game = () =>{
   
         });
 
-        playRound(humanSelection, computerSelection) // We are calling the function playRound
-        checkScore() // We are calling the function checkScore()
     }
 
 
