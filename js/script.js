@@ -31,7 +31,7 @@ const game = () =>{
 
                 // Calling gameOver function after 10 moves
                 if (moves == 10) {
-                    gameOver(playerOptions, movesLeft);
+                    gameOver(humanSelection, movesLeft);
                 }
 
             })
@@ -66,7 +66,7 @@ const game = () =>{
 
     const winner = (humanChoice, computerChoice) => {
         const result = document.querySelector('.result');
-        const playerScoreBoard = document.querySelector('.p-count');
+        const humanScoreBoard = document.querySelector('.p-count');
         const computerScoreBoard = document.querySelector('.c-count');
         humanChoice = humanChoice.toLowerCase()
         computerChoice = computerChoice.toLowerCase()
@@ -82,7 +82,7 @@ const game = () =>{
             } else {
                 result.textContent = 'Playeer Won'
                 humanScore++;
-                playerScoreBoard.textContent = computerScore;
+                humanScoreBoard.textContent = computerScore;
             }
         }
         else if (humanChoice  == 'scissors'){
@@ -93,7 +93,7 @@ const game = () =>{
             } else {
                 result.textContent = 'Playeer Won'
                 humanScore++;
-                playerScoreBoard.textContent = computerScore;
+                humanScoreBoard.textContent = computerScore;
             }
         }
         else if (humanChoice  == 'paper'){
@@ -104,9 +104,46 @@ const game = () =>{
             } else {
                 result.textContent = 'Playeer Won'
                 humanScore++;
-                playerScoreBoard.textContent = computerScore;
+                humanScoreBoard.textContent = computerScore;
             }
         }
+    }
+
+    // Function to run when game is over
+    const gameOver = (humanSelection, moveLeft) => {
+
+        const chooseMove = document.querySelector('.move');
+        const result = document.querySelector('.result');
+        const reloadBtn = document.querySelector('.reload');
+
+        humanSelection.forEach(option => {
+            option.style.display = 'none';
+        })
+
+
+        chooseMove.innerText = 'Game Over!!'
+        movesLeft.style.display = 'none';
+
+        if (humanScore > computerScore) {
+            result.style.fontSize = '2rem';
+            result.innerText = 'You Won The Game'
+            result.style.color = '#308D46';
+        }
+        else if (humanScore < computerScore) {
+            result.style.fontSize = '2rem';
+            result.innerText = 'You Lost The Game';
+            result.style.color = 'red';
+        }
+        else {
+            result.style.fontSize = '2rem';
+            result.innerText = 'Tie';
+            result.style.color = 'grey'
+        }
+        reloadBtn.innerText = 'Restart';
+        reloadBtn.style.display = 'flex'
+        reloadBtn.addEventListener('click', () => {
+            window.location.reload();
+        })
     }
 
 
