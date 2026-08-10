@@ -15,6 +15,29 @@ const game = () =>{
         const humanSelection = getHumanChoice() // We are calling the function getHumanChoice
         const computerSelection = getComputerChoice() // We are calling the function getComputerChoice()
 
+        // Function to start playing game
+        humanSelection.forEach(option => {
+            option.addEventListener('click', function () {
+                //This is how we update the text 
+                const moveLeft = document.querySelector('.movesleft');
+                moves++;
+                movesLeft.innerText = `Moves Left: ${10 - moves}`;
+
+                const choiceNumber = Math.floor(Math.random() * 3);
+                const computerChoice = computerOptions[choiceNumber];
+
+                // Function to check who wins
+                winner(this.innerText, computerChoice)
+
+                // Calling gameOver function after 10 moves
+                if (moves == 10) {
+                    gameOver(playerOptions, movesLeft);
+                }
+
+            })
+  
+        });
+
         playRound(humanSelection, computerSelection) // We are calling the function playRound
         checkScore() // We are calling the function checkScore()
     }
