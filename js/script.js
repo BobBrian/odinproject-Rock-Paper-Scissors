@@ -80,6 +80,7 @@ function checkScore(playerScore, computerScore){
     }
 }
 
+
 function playGame (){
     // For Loop Javascript Style so that the playRound function runs 5 times
     for (let i = 0; i < rounds; i++){
@@ -101,3 +102,5 @@ function playGame (){
 // This actually starts the game
 // This is what we refer to as Calling the function
 playGame();
+
+
