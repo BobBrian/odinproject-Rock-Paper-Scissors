@@ -60,48 +60,53 @@ const game = () =>{
         // We dont worry about Error Handeling at this stage
         let person = prompt("Please pick rock, paper or scissors")
         if (person != null) {
-        console.log("Success! You Chose " + person + "!");
-        return person.toLowerCase(); // This is important so that we actually get a response and not null
-    }
+            console.log("Success! You Chose " + person + "!");
+        }
     }
 
-    function playRound(humanChoice, computerChoice) {
-
-        console.log(`You chose ${humanChoice}`);
-        console.log(`Computer chose ${computerChoice}`);
+    const winner = (humanChoice, computerChoice) => {
+        const result = document.querySelector('.result');
+        const playerScoreBoard = document.querySelector('.p-count');
+        const computerScoreBoard = document.querySelector('.c-count');
+        humanChoice = humanChoice.toLowerCase()
+        computerChoice = computerChoice.toLowerCase()
 
         if (humanChoice === computerChoice){
-            console.log("It's a Tie")
+            result.textContent = 'Tie'
         }
         else if (humanChoice == 'rock'){
             if(computerChoice == 'paper'){
-                console.log("Computer Won")
+                result.textContent = 'Computer Won'
                 computerScore++;
+                computerScoreBoard.textContent = computerScore;
             } else {
-                console.log("Player Won")
+                result.textContent = 'Playeer Won'
                 humanScore++;
+                playerScoreBoard.textContent = computerScore;
             }
         }
         else if (humanChoice  == 'scissors'){
             if(computerChoice == 'rock'){
-                console.log("Computer Won")
+                result.textContent = 'Computer Won'
                 computerScore++;
+                computerScoreBoard.textContent = computerScore;
             } else {
-                console.log("Player Won")
+                result.textContent = 'Playeer Won'
                 humanScore++;
+                playerScoreBoard.textContent = computerScore;
             }
         }
         else if (humanChoice  == 'paper'){
             if(computerChoice == 'scissors'){
-                console.log("Computer Won")
+                result.textContent = 'Computer Won'
                 computerScore++;
+                computerScoreBoard.textContent = computerScore;
             } else {
-                console.log("Player Won")
+                result.textContent = 'Playeer Won'
                 humanScore++;
+                playerScoreBoard.textContent = computerScore;
             }
         }
-
-        console.log(`Score: Player ${humanScore} - Computer ${computerScore}`);
     }
 
     function checkScore(playerScore, computerScore){
