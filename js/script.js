@@ -116,3 +116,5 @@ const game = () =>{
 
 }
 
+// calling game fucntion
+game();
