@@ -1,106 +1,110 @@
-let humanScore = 0;
-let computerScore = 0;
-let round = 5;
+// Encompase Enitre Game Function inside a function
 
-function getComputerChoice () {
+const game = () =>{
+    let humanScore = 0;
+    let computerScore = 0;
+    let round = 5;
 
-    let randomNumber = Math.floor(Math.random()*3)
+    function getComputerChoice () {
 
-    // Map each number to a variable
-    switch(randomNumber){
-        case 0:
-            return "rock";
-        case 1:
-            return "paper";
-        case 2:
-            return "scissors";
-    }
-}
+        let randomNumber = Math.floor(Math.random()*3)
 
-function getHumanChoice(){
-    // We dont worry about Error Handeling at this stage
-    let person = prompt("Please pick rock, paper or scissors")
-    if (person != null) {
-    console.log("Success! You Chose " + person + "!");
-    return person.toLowerCase(); // This is important so that we actually get a response and not null
-  }
-}
-
-function playRound(humanChoice, computerChoice) {
-
-    console.log(`You chose ${humanChoice}`);
-    console.log(`Computer chose ${computerChoice}`);
-
-    if (humanChoice === computerChoice){
-        console.log("It's a Tie")
-    }
-    else if (humanChoice == 'rock'){
-        if(computerChoice == 'paper'){
-            console.log("Computer Won")
-            computerScore++;
-        } else {
-            console.log("Player Won")
-            humanScore++;
-        }
-    }
-    else if (humanChoice  == 'scissors'){
-        if(computerChoice == 'rock'){
-            console.log("Computer Won")
-            computerScore++;
-        } else {
-            console.log("Player Won")
-            humanScore++;
-        }
-    }
-    else if (humanChoice  == 'paper'){
-        if(computerChoice == 'scissors'){
-            console.log("Computer Won")
-            computerScore++;
-        } else {
-            console.log("Player Won")
-            humanScore++;
+        // Map each number to a variable
+        switch(randomNumber){
+            case 0:
+                return "rock";
+            case 1:
+                return "paper";
+            case 2:
+                return "scissors";
         }
     }
 
-    console.log(`Score: Player ${humanScore} - Computer ${computerScore}`);
-}
-
-function checkScore(playerScore, computerScore){
-        
-    if(playerScore > computerScore){
-        console.log(`You won! Your score is ${playerScore} out of ${playerScore + computerScore}`)
+    function getHumanChoice(){
+        // We dont worry about Error Handeling at this stage
+        let person = prompt("Please pick rock, paper or scissors")
+        if (person != null) {
+        console.log("Success! You Chose " + person + "!");
+        return person.toLowerCase(); // This is important so that we actually get a response and not null
     }
-    else if (playerScore < computerScore)
-    {
-        console.log(`You Lose!. Your score is ${playerScore} out of ${playerScore + computerScore}.`)
     }
-    else
-    {
-        console.log("Its a Tie")
-    }
-}
 
+    function playRound(humanChoice, computerChoice) {
 
-function playGame (){
-    // For Loop Javascript Style so that the playRound function runs 5 times
-    for (let i = 0; i < rounds; i++){
-        const humanSelection = getHumanChoice() // We are calling the function getHumanChoice
+        console.log(`You chose ${humanChoice}`);
+        console.log(`Computer chose ${computerChoice}`);
 
-        if(humanSelection === null){
-            console.log("Game Ended")
-            return;
+        if (humanChoice === computerChoice){
+            console.log("It's a Tie")
+        }
+        else if (humanChoice == 'rock'){
+            if(computerChoice == 'paper'){
+                console.log("Computer Won")
+                computerScore++;
+            } else {
+                console.log("Player Won")
+                humanScore++;
+            }
+        }
+        else if (humanChoice  == 'scissors'){
+            if(computerChoice == 'rock'){
+                console.log("Computer Won")
+                computerScore++;
+            } else {
+                console.log("Player Won")
+                humanScore++;
+            }
+        }
+        else if (humanChoice  == 'paper'){
+            if(computerChoice == 'scissors'){
+                console.log("Computer Won")
+                computerScore++;
+            } else {
+                console.log("Player Won")
+                humanScore++;
+            }
         }
 
-        const computerSelection = getComputerChoice() // We are calling the function getComputerChoice()
-
-        playRound(humanSelection, computerSelection) // We are calling the function playRound
+        console.log(`Score: Player ${humanScore} - Computer ${computerScore}`);
     }
 
-    checkScore() // We are calling the function checkScore()
+    function checkScore(playerScore, computerScore){
+            
+        if(playerScore > computerScore){
+            console.log(`You won! Your score is ${playerScore} out of ${playerScore + computerScore}`)
+        }
+        else if (playerScore < computerScore)
+        {
+            console.log(`You Lose!. Your score is ${playerScore} out of ${playerScore + computerScore}.`)
+        }
+        else
+        {
+            console.log("Its a Tie")
+        }
+    }
+
+
+    function playGame (){
+        // For Loop Javascript Style so that the playRound function runs 5 times
+        for (let i = 0; i < rounds; i++){
+            const humanSelection = getHumanChoice() // We are calling the function getHumanChoice
+
+            if(humanSelection === null){
+                console.log("Game Ended")
+                return;
+            }
+
+            const computerSelection = getComputerChoice() // We are calling the function getComputerChoice()
+
+            playRound(humanSelection, computerSelection) // We are calling the function playRound
+        }
+
+        checkScore() // We are calling the function checkScore()
+    }
+
+    // This actually starts the game
+    // This is what we refer to as Calling the function
+    playGame();
+
 }
-
-// This actually starts the game
-// This is what we refer to as Calling the function
-playGame();
-
 
