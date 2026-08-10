@@ -109,26 +109,9 @@ const game = () =>{
         }
     }
 
-    function checkScore(playerScore, computerScore){
-            
-        if(playerScore > computerScore){
-            console.log(`You won! Your score is ${playerScore} out of ${playerScore + computerScore}`)
-        }
-        else if (playerScore < computerScore)
-        {
-            console.log(`You Lose!. Your score is ${playerScore} out of ${playerScore + computerScore}.`)
-        }
-        else
-        {
-            console.log("Its a Tie")
-        }
-    }
 
 
 
-
-    // This actually starts the game
-    // This is what we refer to as Calling the function
     playGame();
 
 }
